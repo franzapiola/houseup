@@ -17,6 +17,8 @@
       "@navigation/*": ["navigation/*"],
       "@types": ["types"],
       "@types/*": ["types/*"],
+      "@globalStyles": ["globalStyles"],
+      "@globalStyles/*": ["globalStyles/*"],
     }
   }
 }

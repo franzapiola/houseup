@@ -15,6 +15,7 @@ module.exports = function (api) {
             '@screens': './src/components/screens/index',
             '@navigation': './src/navigation/index',
             '@types': './src/types/index',
+            '@globalStyles': './src/globalStyles/index',
           },
         },
       ],
