@@ -1,3 +1,23 @@
-module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ['module:metro-react-native-babel-preset'],
+    plugins: [
+      [
+        'module-resolver',
+        {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          root: ['./'],
+          alias: {
+            '@components': './src/components/index',
+            '@atoms': './src/components/atoms/index',
+            '@molecules': './src/components/molecules/index',
+            '@screens': './src/components/screens/index',
+            '@navigation': './src/navigation/index',
+            '@types': './src/types/index',
+          },
+        },
+      ],
+    ],
+  };
 };
