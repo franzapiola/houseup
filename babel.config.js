@@ -12,6 +12,7 @@ module.exports = function (api) {
             '@components': './src/components/index',
             '@atoms': './src/components/atoms/index',
             '@molecules': './src/components/molecules/index',
+            '@organisms': './src/components/organisms/index',
             '@screens': './src/components/screens/index',
             '@navigation': './src/navigation/index',
             '@types': './src/types/index',

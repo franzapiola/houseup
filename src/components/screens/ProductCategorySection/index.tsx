@@ -4,7 +4,7 @@ import { useFocusEffect, useRoute, RouteProp } from '@react-navigation/native';
 
 import { Container, Divider, Text } from '@atoms';
 import { Colors } from '@globalStyles';
-import { ImageItemWithViewer } from '@molecules';
+import { ImageItemWithViewer } from '@organisms';
 import { Product } from '@types';
 import { StackParamList } from '@navigation';
 

@@ -11,6 +11,8 @@
       "@atoms/*": ["components/atoms/*"],
       "@molecules": ["components/molecules/index"],
       "@molecules/*": ["components/molecules/*"],
+      "@organisms": ["components/organisms/index"],
+      "@organisms/*": ["components/organisms/*"],
       "@screens": ["components/screens/index"],
       "@screens/*": ["components/screens/*"],
       "@navigation": ["navigation/index"],
