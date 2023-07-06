@@ -4,11 +4,12 @@ import { Container, Text } from '@atoms';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { ImageButton } from '@molecules';
-import { StackParamList } from '../../../../App';
+import { StackParamList } from '@navigation';
 import { ProductCategoriesMap, productCategoryNames } from '@constants';
 
 import styles from './styles';
-import { View } from 'react-native';
+import { Image, View } from 'react-native';
+import { images } from '@assets';
 
 type HomeScreenNavigationType = NativeStackNavigationProp<
   StackParamList,
@@ -22,9 +23,11 @@ const Home = () => {
       scrollViewProps={{
         contentContainerStyle: styles.container,
       }}>
-      <Text type="title">HouseUp</Text>
       <View>
-        <Text>Buscar productos...</Text>
+        <Image source={images.logo} style={styles.logoImg} />
+        <Text type="title">HouseUp</Text>
+      </View>
+      <View style={styles.buttonsView}>
         {productCategoryNames.map((name, index) => (
           <ImageButton
             key={index}

@@ -21,6 +21,7 @@ const Navigation = () => {
           name="Home"
           options={{
             title: 'Inicio',
+            headerShown: false,
           }}
           component={Home}
         />

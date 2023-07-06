@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ImageSourcePropType, TouchableHighlight, Image } from 'react-native';
+import { ImageSourcePropType, Image, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 import { Text } from '@atoms';
@@ -12,12 +12,12 @@ interface ImageButtonProps {
 
 const ImageButton: React.FC<ImageButtonProps> = ({ img, onPress, label }) => {
   return (
-    <TouchableHighlight style={styles.wrapper} onPress={onPress}>
+    <TouchableOpacity style={styles.wrapper} onPress={onPress}>
       <>
-        <Image source={img} />
-        {label && <Text>{label}</Text>}
+        <Image source={img} style={styles.img} />
+        {label && <Text style={styles.label}>{label}</Text>}
       </>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 
