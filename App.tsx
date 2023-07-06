@@ -1,21 +1,17 @@
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import {Container, Text} from '@atoms';
+import { NavigationContainer } from '@react-navigation/native';
+import { Container, Text } from '@atoms';
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {TouchableHighlight} from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home } from '@screens';
 
-const Stack = createNativeStackNavigator();
-
-const Home = () => {
-  const navigation = useNavigation();
-  return (
-    <Container>
-      <TouchableHighlight onPress={() => navigation.navigate('Aberturas')}>
-        <Text type="title">HouseUp</Text>
-      </TouchableHighlight>
-    </Container>
-  );
+export type StackParamList = {
+  Home: undefined;
+  Aberturas: undefined;
+  Equipamiento: undefined;
+  Terminaciones: undefined;
 };
+
+const Stack = createNativeStackNavigator<StackParamList>();
 
 const Example = () => (
   <Container>
@@ -30,12 +26,12 @@ function App(): JSX.Element {
         <Stack.Screen
           name="Home"
           options={{
-            title: 'HouseUp',
+            title: 'Inicio',
           }}
           component={Home}
         />
         <Stack.Screen name="Aberturas" component={Example} />
-        <Stack.Screen name="Equipamientos" component={Example} />
+        <Stack.Screen name="Equipamiento" component={Example} />
         <Stack.Screen name="Terminaciones" component={Example} />
       </Stack.Navigator>
     </NavigationContainer>
