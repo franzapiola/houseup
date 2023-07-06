@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Modal, Image, TouchableOpacity } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import Toast from 'react-native-toast-message';
 
 import { Text } from '@atoms';
 import styles from './styles';
@@ -16,6 +17,17 @@ const ImageItemWithViewer: React.FC<ImageItemWithViewerProps> = ({
   label,
 }) => {
   const [modalVisible, setModalVisible] = React.useState(false);
+
+  const onLeftButtonPress = () => {
+    setModalVisible(false);
+    Toast.show({ text1: 'Fijado' });
+  };
+
+  const onRightButtonPress = () => {
+    setModalVisible(false);
+    Toast.show({ text1: 'Borrado', type: 'error' });
+  };
+
   return (
     <>
       <TouchableOpacity
@@ -36,10 +48,14 @@ const ImageItemWithViewer: React.FC<ImageItemWithViewerProps> = ({
           )}
           renderFooter={() => (
             <View style={styles.viewerFooterRow}>
-              <TouchableOpacity style={styles.viewerOption}>
+              <TouchableOpacity
+                style={styles.viewerOption}
+                onPress={onLeftButtonPress}>
                 <Text style={styles.viewerOptionsText}>Fijar</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.viewerOption}>
+              <TouchableOpacity
+                style={styles.viewerOption}
+                onPress={onRightButtonPress}>
                 <Text style={styles.viewerOptionsText}>Borrar</Text>
               </TouchableOpacity>
             </View>

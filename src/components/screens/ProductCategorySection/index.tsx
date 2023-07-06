@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Image, View } from 'react-native';
 import { useFocusEffect, useRoute, RouteProp } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 
 import { Container, Divider, Text } from '@atoms';
 import { Colors } from '@globalStyles';
@@ -34,6 +35,10 @@ const ProductCategorySectionScreen = ({}) => {
           setData(data);
         } catch (error) {
           console.error(error);
+          Toast.show({
+            type: 'error',
+            text1: 'Hubo un error al mostrar los productos.',
+          });
         } finally {
           setLoading(false);
         }
