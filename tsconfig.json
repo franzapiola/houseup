@@ -21,6 +21,8 @@
       "@globalStyles/*": ["globalStyles/*"],
       "@assets": ["assets"],
       "@assets/*": ["assets/*"],
+      "@constants": ["constants"],
+      "@constants/*": ["constants/*"],
     }
   }
 }
