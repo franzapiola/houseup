@@ -6,9 +6,11 @@ import {
   StatusBar,
   ViewStyle,
   ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 
 import styles from './styles';
+import { Colors } from '@globalStyles';
 
 type ScreenContainerStyles = {
   container?: ViewStyle;
@@ -22,6 +24,7 @@ export interface ScreenContainerProps {
     contentContainerStyle: ViewStyle;
   };
   disableScrollView?: Boolean;
+  loading?: Boolean;
 }
 
 const ScreenContainer: FC<ScreenContainerProps> = ({
@@ -29,6 +32,7 @@ const ScreenContainer: FC<ScreenContainerProps> = ({
   customStyles = {},
   disableScrollView = false,
   scrollViewProps,
+  loading = false,
 }) => {
   return (
     <>
@@ -39,7 +43,11 @@ const ScreenContainer: FC<ScreenContainerProps> = ({
         }
       />
       <SafeAreaView style={[styles.flex, styles.bgColor]}>
-        {disableScrollView ? (
+        {loading ? (
+          <View style={styles.loadingView}>
+            <ActivityIndicator color={Colors.dark} size={100} />
+          </View>
+        ) : disableScrollView ? (
           children
         ) : (
           <ScrollView

@@ -12,4 +12,8 @@ export default StyleSheet.create({
     paddingTop: 8,
     paddingHorizontal: 20,
   },
+  loadingView: {
+    flex: 1,
+    justifyContent: 'center',
+  },
 });

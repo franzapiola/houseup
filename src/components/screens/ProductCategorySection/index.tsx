@@ -21,20 +21,26 @@ const ProductCategorySectionScreen = ({}) => {
   } = useRoute<ProductCategorySectionScreenRouteType>();
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useFocusEffect(
     useCallback(() => {
       (async () => {
-        const result = await fetch(dataUrl);
-        const data = await result.json();
-        setData(data);
-        console.log(data);
+        try {
+          const result = await fetch(dataUrl);
+          const data = await result.json();
+          setData(data);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setLoading(false);
+        }
       })();
     }, []),
   );
 
   return (
-    <Container>
+    <Container loading={loading}>
       <View style={styles.titleRow}>
         <Image source={categoryImg} />
         <Text type="title">{name}</Text>
