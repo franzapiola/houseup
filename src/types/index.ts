@@ -10,3 +10,8 @@ export interface ProductCategory {
   img: ImageSourcePropType;
   dataUrl: string;
 }
+
+export interface Product {
+  img: string;
+  name: string;
+}

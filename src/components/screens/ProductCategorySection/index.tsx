@@ -1,12 +1,14 @@
 import React, { useCallback, useState } from 'react';
-import { useFocusEffect, useRoute, RouteProp } from '@react-navigation/native';
-import { Container, Divider, Text } from '@atoms';
-
-import { StackParamList } from '../../../../App';
 import { Image, View } from 'react-native';
+import { useFocusEffect, useRoute, RouteProp } from '@react-navigation/native';
+
+import { Container, Divider, Text } from '@atoms';
+import { Colors } from '@globalStyles';
+import { ImageItemWithViewer } from '@molecules';
+import { Product } from '@types';
+import { StackParamList } from '@navigation';
 
 import styles from './styles';
-import { Colors } from '@globalStyles';
 
 type ProductCategorySectionScreenRouteType = RouteProp<
   StackParamList,
@@ -49,13 +51,8 @@ const ProductCategorySectionScreen = ({}) => {
         <View key={index} style={styles.productSubCategory}>
           <Text style={styles.subCategoryName}>{name}</Text>
           <Divider color={Colors.default} />
-          {items.map(({ name, img }, index) => (
-            <View key={index} style={styles.product}>
-              <Text style={styles.productName}>{name}</Text>
-              <View style={styles.imgWrapper}>
-                <Image source={{ uri: img }} style={styles.img} />
-              </View>
-            </View>
+          {(items as [Product]).map(({ name, img }, index) => (
+            <ImageItemWithViewer key={index} imgUrl={img} label={name} />
           ))}
         </View>
       ))}
