@@ -19,6 +19,8 @@
       "@types/*": ["types/*"],
       "@globalStyles": ["globalStyles"],
       "@globalStyles/*": ["globalStyles/*"],
+      "@assets": ["assets"],
+      "@assets/*": ["assets/*"],
     }
   }
 }
