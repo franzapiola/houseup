@@ -1,11 +1,14 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Container, Text } from '@atoms';
-import { images } from '@assets';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { ImageButton } from '@molecules';
 import { StackParamList } from '../../../../App';
+import { ProductCategoriesMap, productCategoryNames } from '@constants';
+
+import styles from './styles';
+import { View } from 'react-native';
 
 type HomeScreenNavigationType = NativeStackNavigationProp<
   StackParamList,
@@ -15,22 +18,26 @@ type HomeScreenNavigationType = NativeStackNavigationProp<
 const Home = () => {
   const navigation = useNavigation<HomeScreenNavigationType>();
   return (
-    <Container>
-      <ImageButton
-        img={images.aberturas}
-        onPress={() => navigation.navigate('Aberturas')}
-        label="Aberturas"
-      />
-      <ImageButton
-        img={images.equipamiento}
-        onPress={() => navigation.navigate('Equipamiento')}
-        label="Equipamiento"
-      />
-      <ImageButton
-        img={images.terminaciones}
-        onPress={() => navigation.navigate('Terminaciones')}
-        label="Terminaciones"
-      />
+    <Container
+      scrollViewProps={{
+        contentContainerStyle: styles.container,
+      }}>
+      <Text type="title">HouseUp</Text>
+      <View>
+        <Text>Buscar productos...</Text>
+        {productCategoryNames.map((name, index) => (
+          <ImageButton
+            key={index}
+            onPress={() =>
+              navigation.navigate('Category', {
+                data: ProductCategoriesMap[name],
+              })
+            }
+            img={ProductCategoriesMap[name].img}
+            label={name}
+          />
+        ))}
+      </View>
     </Container>
   );
 };

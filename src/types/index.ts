@@ -1,5 +1,4 @@
 import { ImageSourcePropType } from 'react-native';
-import { images } from '@assets';
 
 export type ProductCategoryName =
   | 'Aberturas'

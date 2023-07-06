@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 import {
   View,
@@ -44,18 +44,10 @@ const ScreenContainer: FC<ScreenContainerProps> = ({
         ) : (
           <ScrollView
             contentContainerStyle={[
-              styles.defaultPadding,
+              styles.contentContainer,
               scrollViewProps?.contentContainerStyle,
             ]}>
-            <View
-              style={[
-                styles.flex,
-                styles.bgColor,
-                styles.contentContainer,
-                customStyles.contentContainer,
-              ]}>
-              {children}
-            </View>
+            {children}
           </ScrollView>
         )}
       </SafeAreaView>

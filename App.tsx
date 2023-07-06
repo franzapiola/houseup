@@ -2,22 +2,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Container, Text } from '@atoms';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home } from '@screens';
+import { Home, ProductCategorySectionScreen } from '@screens';
+import { ProductCategory } from '@types';
 
 export type StackParamList = {
   Home: undefined;
-  Aberturas: undefined;
-  Equipamiento: undefined;
-  Terminaciones: undefined;
+  Category: {
+    data: ProductCategory;
+  };
 };
 
 const Stack = createNativeStackNavigator<StackParamList>();
-
-const Example = () => (
-  <Container>
-    <Text type="title">Example...</Text>
-  </Container>
-);
 
 function App(): JSX.Element {
   return (
@@ -30,9 +25,14 @@ function App(): JSX.Element {
           }}
           component={Home}
         />
-        <Stack.Screen name="Aberturas" component={Example} />
-        <Stack.Screen name="Equipamiento" component={Example} />
-        <Stack.Screen name="Terminaciones" component={Example} />
+
+        <Stack.Screen
+          name="Category"
+          options={{
+            title: 'Buscar productos',
+          }}
+          component={ProductCategorySectionScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
