@@ -4,7 +4,7 @@ import { useFocusEffect, useRoute, RouteProp } from '@react-navigation/native';
 
 import { Container, Divider, Text } from '@atoms';
 import { Colors } from '@globalStyles';
-import { ImageItemWithViewer } from '@organisms';
+import { Footer, ImageItemWithViewer } from '@organisms';
 import { Product } from '@types';
 import { StackParamList } from '@navigation';
 
@@ -42,21 +42,26 @@ const ProductCategorySectionScreen = ({}) => {
   );
 
   return (
-    <Container loading={loading}>
-      <View style={styles.titleRow}>
-        <Image source={categoryImg} />
-        <Text type="title">{name}</Text>
-      </View>
-      {data.map(({ name, items }, index) => (
-        <View key={index} style={styles.productSubCategory}>
-          <Text style={styles.subCategoryName}>{name}</Text>
-          <Divider color={Colors.default} />
-          {(items as [Product]).map(({ name, img }, index) => (
-            <ImageItemWithViewer key={index} imgUrl={img} label={name} />
-          ))}
+    <>
+      <Container
+        loading={loading}
+        scrollViewProps={{ contentContainerStyle: styles.contentContainer }}>
+        <View style={styles.titleRow}>
+          <Image source={categoryImg} />
+          <Text type="title">{name}</Text>
         </View>
-      ))}
-    </Container>
+        {data.map(({ name, items }, index) => (
+          <View key={index} style={styles.productSubCategory}>
+            <Text style={styles.subCategoryName}>{name}</Text>
+            <Divider color={Colors.default} />
+            {(items as [Product]).map(({ name, img }, index) => (
+              <ImageItemWithViewer key={index} imgUrl={img} label={name} />
+            ))}
+          </View>
+        ))}
+      </Container>
+      <Footer />
+    </>
   );
 };
 

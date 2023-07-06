@@ -5,3 +5,5 @@ export const Colors = {
   light: '#E7E7E7',
   lighter: '#EBEBEB',
 };
+
+export const footerHeight = 60;

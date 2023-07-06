@@ -1,7 +1,10 @@
-import { Colors } from '@globalStyles';
+import { Colors, footerHeight } from '@globalStyles';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  contentContainer: {
+    paddingBottom: footerHeight,
+  },
   titleRow: {
     flexDirection: 'row',
     marginBottom: 10,

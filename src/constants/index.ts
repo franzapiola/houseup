@@ -29,3 +29,9 @@ export const ProductCategoriesMap: {
       'https://us-central1-prueba-front-280718.cloudfunctions.net/terminaciones',
   },
 };
+
+export const dropdownOptions = [
+  'Guardar y continuar',
+  'Guardar y salir',
+  'Salir sin guardar',
+];
